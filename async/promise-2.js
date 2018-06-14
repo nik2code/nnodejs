@@ -18,7 +18,7 @@ return new Promise((resolve , reject)=>{
         if(body.status == 'OK'  && response.statusCode ===200)
         {   
             console.log(body);
-            resolve(undefined,{
+            resolve({
                 address :body.results[0].formatted_address,
                 lat : body.results[0].geometry.location.lat,
                 lng: body.results[0].geometry.location.lng,
@@ -32,7 +32,7 @@ return new Promise((resolve , reject)=>{
 });
 };
 
-geoCodeAddress('kamothe').then((location)=>{
+geoCodeAddress('800001').then((location)=>{
     console.log('==>'+JSON.stringify(location,undefined,2));
 },(errorMessage)=>{
     console.log('-->'+errorMessage);
